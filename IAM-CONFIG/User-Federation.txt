@@ -1,0 +1,39 @@
+User Federation : ldap
+    Enabled : On 
+    Console Display Name : ldap
+    Priority : 0
+    Import Users : On
+    Edit Mode : READ_ONLY
+    Sync Registration : Off
+    Vendor : Active Directory
+    Username LDAP attributes : sAMAccountName
+    RDN LDAP attributes : userPrincipalName
+    UUID LDAP attributes : objectGUID
+    User Object Classes : person
+    Connection URL : ldap://ac.test.localhost
+    User DN : OU=Sites,DC=AE,DC=localhost
+    Bind Type : Simple
+    Enable Start TLS : Off
+    Bind DN : CN=SCM AUTHENTICATION (SVC), OU=Common-Account,OU=Sites,DC=localhost
+    Bind Credential :
+    Custom User LDAP Filter : LDAP Filter
+    Search Scope : Subtree
+    Validate Password Policy : Off
+    Trust Email :
+    User Truststore SPI : Only for ldaps
+    Connection Pool : On 
+    Connection Timeout :
+    Read Time Out :
+    Pagination : On
+    
+kerberos Integration
+    Allow kerberos authentication : Off
+    User kerberos for password authentication : off 
+
+Sync Setting 
+    batch Size : 1000
+    Periodic Full Sync : Off 
+    Periodic Change Users Sync : Off 
+
+Cache Settings
+    Cache Policy :

@@ -1,0 +1,194 @@
+AE-SCM-ITEM-MANAGEMENT-WEB
+
+Settings
+========
+
+Client Id : AE-SCM-ITEM-MANAGEMENT-WEB
+Name : 
+Description :
+Enabled : On
+Consent Required : Off
+Login Theme :
+Client Protocol : openid-connect
+Access type : public
+Standard Flow enabled : On
+Implicit Flow enabled : Off
+Direct Access Grants Enabled : On
+Root URL : http://scm/item-management
+Valid Redirect URIs :   http://scm/item-management
+                        http://localhost:4200/item-management
+
+Base URL :
+Admin URL : http://scm/item-management
+Web Origin : http://scm
+            http://localhost:4200
+
+Fine Grain OpenID connect configuration
+========================================
+Access token Signature Algorithm :
+ID Token Signature Algorithm :
+ID Token Encryption Key Management Algorithm :
+User Info Signed Response Algorithm : unsigned
+Request Object Signature Algorithm : any
+Request Object Required : not Required
+Open ID Connect Compatibility Modes :
+====================================
+Exclude session state from 
+Authentication response : Off
+Advanced Settings
+=================
+Access token Lifespan :  Minutes
+OAuth 2.0 Mutual TLS Certificate : Off
+Proof Key for code exchange code :
+Authentication Flow Overrides
+=============================
+
+
+AE-SCM-ITEM-MANAGEMENT-SERVICE
+
+Settings
+========
+
+Client Id : AE-SCM-ITEM-MANAGEMENT-SERVICE
+Name : 
+Description :
+Enabled : On
+Consent Required : Off
+Login Theme :
+Client Protocol : openid-connect
+Access type : credential
+Standard Flow enabled : On
+Implicit Flow enabled : Off
+Direct Access Grants Enabled : On
+Service Accounts Enabled : On 
+Authorization Enabled : On 
+
+Root URL : http://scm/item-management-api
+Valid Redirect URIs :   http://scm/item-management-api
+                        http://localhost:4200/item-management-api
+
+Base URL :
+Admin URL : http://scm/item-management-api
+Web Origin : http://scm
+            http://localhost:5000
+
+Fine Grain OpenID connect configuration
+========================================
+Access token Signature Algorithm :
+ID Token Signature Algorithm :
+ID Token Encryption Key Management Algorithm :
+User Info Signed Response Algorithm : unsigned
+Request Object Signature Algorithm : any
+Request Object Required : not Required
+Open ID Connect Compatibility Modes :
+====================================
+Exclude session state from 
+Authentication response : Off
+Advanced Settings
+=================
+Access token Lifespan :  Minutes
+OAuth 2.0 Mutual TLS Certificate : Off
+Proof Key for code exchange code :
+Authentication Flow Overrides
+=============================
+
+Credentials
+===========
+Client Authenticator : Client Id and Secret
+Secret : ****************
+
+Registration access token :
+
+Role
+====
+uma-protection
+    Role Name : uma_protection
+    Description :
+    Composite Roles : Off
+
+Client Scopes
+=============
+   Default Client Scopes : Available Client Scopes             Assigned Default Client Scopes
+                                                                email
+                                                                profile
+                                                                roles   
+                                                                web-origins
+
+    Optional Client Scopes                                      Asigned Optional Client Scopes  
+                                                                addess
+                                                                microprofile-jwt
+                                                                offline_access
+                                                                phone
+
+Mappers
+=======
+Name                Category        Type                    Priority order
+Client Id           Token Mappers   User Session Note       0
+Client IP address   Token Mappers   User Session Note       0
+Client Host         Token Mappers   User Session Note       0
+
+Scope 
+=====
+    Full Scope Allowed : On 
+
+Authorization
+=============
+
+Settings
+--------
+    Import :
+    Policy Enforcement Mode : Enforcing
+    Decision Strategy : Unanimous
+    Remote Resource Management : On 
+
+Resources
+---------
+    ITEM_MANAGEMENT
+        Name : ITEM_MANAGEMENT
+        Display Name : ITEM_MANAGEMENT
+        Owner : ITEM_MANAGEMENT
+        Type :
+        URI : /api/item-management/*
+
+        Scope : CREATE,DELETE,CANCEL, UPDATE
+
+        Icon URI : 
+
+        User-Managed Access Enabled : Off
+
+        Resource Attribute
+
+Authorization Scopes
+====================
+ACTIVATE
+APPROVE
+DEACTIVATE
+REJECT
+CREATE
+UPDATE
+DELETE
+VIEW
+PRINT
+PUBLISH
+
+Policies
+========
+CREATE_ITEM_POLICY
+    Name : CREATE_ITEM_POLICY
+    Description : Policy for creating items
+    Realm Roles :
+        STORE_MANAGER
+        STORE_SUPERVISOR
+
+Permission 
+==========
+CREATE_ITEM_PERMISSION
+    Name : CREATE_ITEM_PERMISSION
+    Description : Permission for creating items
+    Resource : ITEM_MANAGEMENT
+    Scope : CREATE
+    Add Policy : CREATE_ITEM_POLICY
+
+    Decision Strategy : Unanimous
+
+

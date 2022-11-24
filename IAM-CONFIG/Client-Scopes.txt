@@ -1,0 +1,61 @@
+Client Scopes
+=============
+Setup 
+-----
+    Default Client Scopes : Available Client Scopes             Assigned Default Client Scopes
+                                                                email
+                                                                profile
+                                                                roles   
+                                                                web-origins
+
+    Optional Client Scopes                                      Asigned Optional Client Scopes  
+                                                                addess
+                                                                microprofile-jwt
+                                                                offline_access
+                                                                phone
+
+Evaluate 
+--------
+    Scope Parameter :
+    Client Copes    Available Option Client Scope   Selected Optional Client Scopes     Effective Client Scopes
+                    address                                                             email
+                    microprofile-jwt                                                    profile
+                    offline_access                                                      roles   
+                    phone                                                               web-origins
+    Users
+
+Mappers
+=======
+Name
+AE-SCM-ITEM-MANAGMENT-SERVICE
+
+Scope
+=====
+    Full Scope Allowed : On 
+
+Revocation
+==========
+    Note Before : None    
+Sessions
+========
+Active Session : 2
+Offline Access
+==============
+Offline Tokens : 0
+
+Installation
+============
+Format Option : Select Format
+
+Client Scopes
+=============
+    Name                Protocol        GUI order       
+    address             openid-connect
+    email               openid-connect
+    microprofile-jwt    openid-connect
+    offline_access      openid-connect
+    phone               openid-connect
+    profile             openid-connect
+    role_list           saml
+    roles               openid-connect
+    web-origins         openid-connect

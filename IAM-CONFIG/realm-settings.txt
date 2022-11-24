@@ -1,0 +1,118 @@
+General
+=======
+
+NAME : SCM
+Display Name : Supply Chain Managment System
+HTML Display Name : 
+Frontent URL :
+Enabled : ON
+User-Managment Access : OFF
+Endpoints   : OpenID Endpoints Configuration
+            : SAML 2.0 Identity Provider Metadata
+
+
+Login
+=====
+
+User registration : OFF
+Edit Username : OFF
+Forgot password : OFF
+Remember Me : OFF
+Verify email : OFF
+Loging with email : ON
+require SSL : none
+
+
+Keys
+====
+
+    Active
+    ------
+        Algorithm   Type    Kid                                         Priority    Provider            Publick keys
+        HS256       OCT     64d85338-5e25-4e6c-a5aa-afec29270cbe        100         hmac-generated
+        RS256       RSA     Uy0ZdYPsRGVizkEyALwvUx8kL9FT86SJViWQyC4SRza 100         rsa-generated       Public key Certificate
+        AES         OCT     8e5107b-2362-42ad-90be-1e3fbabd6a7          100         aes-generated
+    
+    Passive
+    -------
+    Disabled
+    --------
+    Provider
+    --------
+        Name            Provider            Provider description                                    Priority    Action
+        hmac-generated  hmac-generated      Generates HMAC secret key                               100         
+        rsa-generated   rsa-generated       Generates RSA key and create a self-signed certificate  100         
+        aes-generated   aes-generated       Generates AES secret key                                100         
+
+Email 
+=====
+    All Blank
+Themes 
+======
+    All Blank
+Cache
+=====
+Token
+=====
+    Default Signature Algorithm :
+    Revoke Refresh Token : OFF
+    SSO Session Idle : 30 Minutes
+    SSO Session Max : 30 Hours
+    SSO Session Idle Remember Me : 0 Minutes
+    SSO Session Max Remember Me : 0 Minutes
+    Offline Session Idle : 30 Days
+    Offline Session Max Limited : Off
+    Access Token Lifespan : 30 Minutes
+    Access Token Lifespan for Implicit Flow : 15 Minutes
+    Client login timeout : 30 Minutes
+    Login timeout : 30 Minutes
+    Login action timeout : 5 Minutes
+    User-Initiated Action Lifespan : 5 Minutes
+    Default Admin-Initiated Action Lifespan: 12 Hours
+
+    Over User-Initiated action lifespan :
+
+Client Registrations
+====================
+Initial Access Tokens
+---------------------
+Client Registraton Policies
+---------------------------
+    Anonymous access policies
+    -------------------------
+
+    Policy Name                         Provider Identity
+    ------------------------------------------------------
+    Max Client Limited                  max-clients
+    Trusted Hosts                       trusted-Hosts
+    Consent Required                    consent-Required
+    Allowed Protocol Mapper types       allowed-protocol-mappers
+    Allowed Client Scopes               allowed-client-templates
+    Full Scope Disabled                 Scope
+
+    Authenticated access policies
+    ------------------------------
+
+    Policy Name                         Provider Identity
+    ------------------------------------------------------------
+    Allowed Protocol Mapper types       allowed-protocol-mappers
+    Allowed client Scopes               allowed-client-templates
+
+Security Defents
+================
+
+Headers 
+-------
+    X-Frame-Options : SAMEORIGIN
+    Content-Security-Policy : frame-src 'self'; frame-ancestors 'self'; object-src 'none';
+    Content-Security-Policy-Report-Only :
+    X-Content-Type-Options : nonsniff
+    X-Robots-Tag: none
+    X-XSS- Protection : 1; mode=block
+    HTTP Strict Transport Security (HSTS) : max-age=31536000; includeSubDomain
+
+Brute Force Detection
+---------------------
+    Enabled : Off    
+
+

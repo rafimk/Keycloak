@@ -1,0 +1,9 @@
+Flows
+=====
+
+Auth Type                           Requirement         
+Client Id And Secret                Alternative
+Signed Jwt                          Alternative
+Signed Jwt With Client Secret       Alternative
+X509 Certificates                   Alternative
+

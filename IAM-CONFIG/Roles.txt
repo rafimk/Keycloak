@@ -1,0 +1,3 @@
+Roles
+=====
+STORE_MANAGER
