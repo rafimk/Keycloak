@@ -10,17 +10,17 @@ Enabled : On
 Consent Required : Off
 Login Theme :
 Client Protocol : openid-connect
-Access type : public
+Access type : confidential
 Standard Flow enabled : On
 Implicit Flow enabled : Off
 Direct Access Grants Enabled : On
 Root URL : http://scm/item-management
-Valid Redirect URIs :   http://scm/item-management
-                        http://localhost:4200/item-management
+Valid Redirect URIs :   http://scm/item-management/*
+                        http://localhost:4200/item-management/*
 
 Base URL :
 Admin URL : http://scm/item-management
-Web Origin : http://scm
+Web Origin : *
             http://localhost:4200
 
 Fine Grain OpenID connect configuration
