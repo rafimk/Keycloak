@@ -1,0 +1,86 @@
+{
+    "UseInMemoryDatabase": false,
+    "ConnectionString": {
+        "DefaultConnection": "Server=xxx;Initial Catalog=xxxx; User ID=user1; Password=pass1"
+    },
+    "Serilog": {
+        "Properties": {
+            "Application": "SCM-Item-Management"
+        },
+        "Using": [ "Serilog.Sinks.Console", "Serilog.Sinks.File", "Serilog.Network", "Serilog.Expression "],
+        "MinimumLevel": {
+            "Default": "Information",
+            "Override": {
+                "Microsoft": "Warning",
+                "System": "Warning"
+            }
+        },
+        "Enrich": [ "FromLogContext", "WithMachineName", "WithProcessId", "WithTreadId" ],
+        "WriteTo": [
+            {
+                "Name": "Console",
+                "Args": {
+                    "outputTemplate": "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff} {Level:u3] {Application} : {Message} {Exception:1}"
+                }
+            },
+            {
+                "Name": "Logger",
+                "Args": {
+                    "configureLogger": {
+                        "Filter": [
+                            {
+                                "Name": "ByIncludingOnly",
+                                "Args": {
+                                    "expression": "Contains{SourceContext, 'EISCore'}"
+                                }
+                            }
+                        ],
+                        "WriteTo": [
+                            {
+                                "Name": "File",
+                                "Args": {
+                                    "path": "Logs\\SCM-Item-Management-EIS-Log.txt",
+                                    "outputTemplate": "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff} {Level:u3] {Application} : {Message} {Exception:1}",
+                                    "rollingInterval": "Day"
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "Name": "Logger",
+                "Args": {
+                    "configureLogger": {
+                        "Filter": [
+                            {
+                                "Name": "ByExcluding",
+                                "Args": {
+                                    "path": "Logs\\SCM-Item-Management-Log.txt",
+                                    "outputTemplate":"[{Timestamp:yyyy-MM-dd HH:mm:ss.fff} {Level:u3] {Application} : {Message} {Exception:1}",
+                                    "rollingInterval": "Day"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    "eis": {
+        "source-system-name": "SCM-Item-Management",
+        "messageSubscription": "true",
+        "PublishStatus": true
+    },
+    "JwtBearer": {
+        "Authority": "http://10.101.201.18:8080/auth/realms/SMS",
+        "Audience": "AF-SCM-Item-Management"
+    },
+    "SSOSettings": {
+        "BaseUrl": "http://10.101.201.18:8080/auth/realms/SMS",
+        "Username": "user1",
+        "Password": "pass1",
+        "Client-id": "admin-cli",
+        "Grant_type": "password"
+    }
+}
