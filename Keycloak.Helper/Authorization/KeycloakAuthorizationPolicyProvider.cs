@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Options;
 
@@ -11,12 +12,11 @@ namespace Keycloak.Helper.Authorization
         private readonly DefaultAuthorizationPolicyProvider _fallbackPolicyProvider;
 
         public KeycloakAuthorizationPolicyProvider(IOptions<KeycloakAuthorizationOptions> options,
-            IOptions<AuthorizationOptions> authorizationOptions,
-            DefaultAuthorizationPolicyProvider fallbackPolicyProvider)
+            IOptions<AuthorizationOptions> authorizationOptions)
         {
             _options = options;
             _authorizationOptions = authorizationOptions;
-            _fallbackPolicyProvider = fallbackPolicyProvider;
+            _fallbackPolicyProvider = new DefaultAuthorizationPolicyProvider(_authorizationOptions);
         }
         
         public Task<AuthorizationPolicy> GetDefaultPolicyAsync() => _fallbackPolicyProvider.GetDefaultPolicyAsync();
@@ -30,7 +30,8 @@ namespace Keycloak.Helper.Authorization
                 return _fallbackPolicyProvider.GetPolicyAsync(policyName);
             }
 
-            var builder = new AuthorizationPolicyBuilder(_options.Value.RequiredScheme);
+            var builder = new AuthorizationPolicyBuilder();
+            builder.AuthenticationSchemes.Add(_options.Value.RequiredScheme);
             builder.AddRequirements(new KeycloakRequirement(policyName));
 
             return Task.FromResult(builder.Build());
